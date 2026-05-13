@@ -53,7 +53,7 @@ while (k < N - 1) {
     jdk.setBodies(links[k], links[k + 1]);
     jdk.setLocalAnchorA(0.5, 0.0);
     jdk.setLocalAnchorB(-0.5, 0.0);
-    Joint joint = Joints::createRevolute(world, jdk);
+    Joints::createRevolute(world, jdk);
     jdk.destroy();
     k = k + 1;
 }

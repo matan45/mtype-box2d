@@ -45,6 +45,11 @@ set(BUILD_SHARED_LIBS ${_prev_shared})
 # Box2D needs PIC when linked into a shared object on Linux.
 set_property(TARGET box2d PROPERTY POSITION_INDEPENDENT_CODE ON)
 
+# Override Box2D's CMakeLists which hardcodes /MT (static CRT). The plugin
+# uses /MD (dynamic CRT) and mixing the two inside one DLL triggers LNK4098.
+set_property(TARGET box2d PROPERTY
+    MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+
 # ---- the plugin shared lib -------------------------------------------------
 set(PLUGIN_SOURCES
     src/PluginEntry.cpp
