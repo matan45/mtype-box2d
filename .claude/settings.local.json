@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\matan\\\\mtype-sfml\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(Format-List)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\matan\\\\mType\" -Force | Select-Object Name, @{Name=\"Type\";Expression={if\\($_.PSIsContainer\\){\"DIR\"}else{\"FILE\"}}} | Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\matan\\\\mType\\\\mType\" -Recurse -Force | Where-Object {$_.Extension -match '\\\\.\\(h|cpp|c|hpp\\)$'} | Select-Object FullName | Select-Object -First 30)"
+    ]
+  }
+}

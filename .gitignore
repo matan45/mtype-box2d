@@ -1,0 +1,29 @@
+# Build output
+build/
+out/
+cmake-build-*/
+
+# Built plugin binaries — drop next to mt/demo/ at deploy time, don't commit.
+*.dll
+*.so
+*.dylib
+*.lib
+*.exp
+*.pdb
+*.obj
+*.ilk
+
+# Generated CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+
+# IDE
+.vs/
+.idea/
+.vscode/
+*.user
+
+# OS junk
+Thumbs.db
+.DS_Store
